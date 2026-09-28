@@ -8,7 +8,7 @@
 <style>
 :root{--green:#173a2e;--green2:#0f2a21;--gold:#b8923f;--gold2:#e2c778;--ivory:#fbf6ea;--ink:#3a2d22;--rose:#c98b8b}
 *{box-sizing:border-box;margin:0}
- [hidden]{display:none!important}
+[hidden]{display:none!important}
 html,body{min-height:100%}
 body{font-family:"Cormorant Garamond",Georgia,serif;color:var(--ink);background:var(--green2);font-size:20px;line-height:1.6;overflow-x:hidden}
 .script{font-family:"Great Vibes","Snell Roundhand",cursive;font-weight:400}
@@ -64,6 +64,7 @@ h2{font-weight:600;font-size:1.05em;letter-spacing:.2em;color:var(--green);margi
 .btn::before{content:"";position:absolute;inset:0;background:var(--green);transform:translateY(101%);transition:transform .35s;z-index:-1}
 .btn:hover,.btn:focus-visible{color:var(--gold2)}
 .btn:hover::before,.btn:focus-visible::before{transform:none}
+.btn.loc{display:inline-flex;align-items:center;gap:8px}
 .btn.solid{background:var(--green);color:var(--gold2)}
 .btn.solid::before{background:var(--gold)}
 .btn.solid:hover{color:var(--green2)}
@@ -90,23 +91,23 @@ h2{font-weight:600;font-size:1.05em;letter-spacing:.2em;color:var(--green);margi
 .rsvp .btn{font:inherit;font-size:.85em;cursor:pointer}
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}
 .gal img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid var(--gold);padding:3px;background:var(--ivory)}
-/* bride & groom cards */
+/* bride & groom: one frame */
 :root{--ring1:#2a8aa8;--ring2:#0d2f3b;--navy:#0e2f3d;--gold3:#d4a72c}
 .big{font-size:clamp(38px,10vw,54px);letter-spacing:0;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:0}
-.couple{display:flex;align-items:stretch;justify-content:center;gap:10px;margin-top:22px}
-.person{flex:1 1 0;max-width:250px;transition:transform .35s,box-shadow .35s,border-color .35s;padding:24px 14px 22px;background:#fff;border:1px solid #f0e6cc;border-radius:26px;box-shadow:0 14px 34px #0e2f3d22}
-.person:hover,.person:focus-within{transform:translateY(-8px);border-color:var(--gold3);box-shadow:0 22px 44px #0e2f3d33,0 0 0 3px #d4a72c40}
-.person:hover .photo{transform:scale(1.05)}
-.photo{transition:transform .35s;width:clamp(100px,30vw,150px);aspect-ratio:1;margin:0 auto 16px;border-radius:50%;padding:5px;background:linear-gradient(160deg,var(--ring1),var(--ring2));display:grid;place-items:center;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.photo .ph{width:100%;height:100%;display:grid;place-items:center;background:#f3f7f9;border-radius:50%;font-size:clamp(36px,11vw,56px)}
+.couple{max-width:480px;margin:22px auto 0;padding:14px 14px 24px;background:#fff;border:1px solid #f0e6cc;border-radius:28px;box-shadow:0 14px 34px #0e2f3d22;transition:transform .35s,box-shadow .35s,border-color .35s}
+.couple:hover,.couple:focus-within{transform:translateY(-6px);border-color:var(--gold3);box-shadow:0 22px 44px #0e2f3d33,0 0 0 3px #d4a72c40}
+.photo{width:100%;aspect-ratio:4/3;border-radius:20px;padding:5px;background:linear-gradient(160deg,var(--ring1),var(--ring2));display:grid;place-items:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.photo .ph{width:100%;height:100%;display:grid;place-items:center;background:#f3f7f9;border-radius:16px;font-size:clamp(40px,12vw,64px)}
+.pair{display:flex;align-items:stretch;gap:6px;margin-top:22px}
+.person{flex:1 1 0;min-width:0}
 .person h3{font-size:1.7em;font-weight:600;color:var(--navy);line-height:1.2}
 .role{letter-spacing:.3em;font-size:.72em;color:var(--gold3);margin-top:4px}
 .dv{display:block;width:40px;height:2px;background:var(--gold3);margin:12px auto}
 .par{font-style:italic;font-size:.9em;line-height:1.35;color:#4a6572}
 .adr{white-space:pre-line;font-family:Lato,"Helvetica Neue",Arial,sans-serif;font-size:.74em;line-height:1.7;color:#2c4a5a;margin-top:8px}
-.amp2{align-self:center;font-size:3em;color:var(--navy);padding:0 4px}
-@media(max-width:560px){.couple{flex-direction:column;align-items:center}.person{width:100%;max-width:300px}.amp2{font-size:2.4em}}
+.amp2{align-self:center;font-size:2.4em;color:var(--navy)}
+@media(max-width:480px){.pair{flex-direction:column;align-items:center;gap:14px}.amp2{font-size:2em}}
 /* hide & seek */
 .hs{margin-top:14px;font-size:.8em;font-style:italic;color:var(--gold);min-height:1.6em;transition:color .4s}
 .hs.win{color:var(--green);font-weight:600}
@@ -152,7 +153,7 @@ body.opened #music{display:grid}
     <p class="inv" data-k="invocation"></p>
     <p class="blessing" data-k="blessing"></p>
     <p class="lead" data-k="lead"></p>
-    <h1 class="names script"> <span data-k="groom"></span><span class="amp">&amp;</span><span data-k="bride"></span></h1>
+    <h1 class="names script"><span data-k="groom"></span><span class="amp">&amp;</span><span data-k="bride"></span></h1>
     <p class="sub" data-k="tagline"></p>
     <p class="herodate" data-k="heroDate"></p>
     <p class="hs" id="hs"></p>
@@ -173,20 +174,21 @@ body.opened #music{display:grid}
       <h2 class="script big">Bride &amp; Groom</h2>
       <div class="orn">◆</div>
       <div class="couple">
-        <div class="person">
-          <div class="photo"><img data-photo="groomPhoto" alt="Groom" hidden><span class="ph">🤵</span></div>
-          <h3 data-k="groom"></h3>
-          <p class="role">THE GROOM</p><i class="dv"></i>
-          <p class="par" data-k="groomParents"></p>
-          <p class="adr" data-k="groomAddress"></p>
-        </div>
-        <div class="amp2 script">&amp;</div>
-        <div class="person">
-          <div class="photo"><img data-photo="bridePhoto" alt="Bride" hidden><span class="ph">👰</span></div>
-          <h3 data-k="bride"></h3>
-          <p class="role">THE BRIDE</p><i class="dv"></i>
-          <p class="par" data-k="brideParents"></p>
-          <p class="adr" data-k="brideAddress"></p>
+        <div class="photo"><img data-photo="couplePhoto" alt="The couple" hidden><span class="ph">🤵👰</span></div>
+        <div class="pair">
+          <div class="person">
+            <h3 data-k="groom"></h3>
+            <p class="role">THE GROOM</p><i class="dv"></i>
+            <p class="par" data-k="groomParents"></p>
+            <p class="adr" data-k="groomAddress"></p>
+          </div>
+          <div class="amp2 script">&amp;</div>
+          <div class="person">
+            <h3 data-k="bride"></h3>
+            <p class="role">THE BRIDE</p><i class="dv"></i>
+            <p class="par" data-k="brideParents"></p>
+            <p class="adr" data-k="brideAddress"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -200,7 +202,7 @@ body.opened #music{display:grid}
         <div><b>DATE</b><p data-k="date"></p></div>
         <div><b>TIME</b><p data-k="time"></p></div>
         <div><b>VENUE</b><p data-k="venue"></p><p class="sub" data-k="address"></p>
-          <div class="btns"><a class="btn solid" id="mapLink" target="_blank" rel="noopener">OPEN GOOGLE MAPS</a></div></div>
+          <div class="btns"><a class="chip" id="mapLink" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>LOCATION</a></div></div>
       </div>
     </div>
 
@@ -209,9 +211,9 @@ body.opened #music{display:grid}
       <p class="sub" data-k="rsvp"></p>
       <div class="btns">
         <a class="chip" id="callLink" aria-label="Call">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a>
         <a class="chip" id="waLink" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/></svg>WhatsApp</a>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 18.8L4 20z"/></svg>WhatsApp</a>
       </div>
     </div>
 
@@ -247,11 +249,10 @@ const D = {
   invocation: "",                      // optional line at the very top, e.g. a prayer / invocation
   heroDate:   "26 · 10 · 2026",        // big date under the names
   footerNote: "",
-  gallery:    [],                      // e.g. ["gallery1.jpg","gallery2.jpg","gallery3.jpg"] (empty = section hidden)
+  gallery:    [],                      // e.g. ["gallery1.jpg","gallery2.jpg"] (empty = section hidden)
 
-  // photos: put the image files in the same folder as this HTML (empty = emoji placeholder)
-  groomPhoto: "groom.jpeg",
-  bridePhoto: "bride.jpeg",
+  // couple photo: put the image in the same folder as this HTML (empty = emoji placeholder)
+  couplePhoto: "couple.jpeg",
   groomParents: "S/o Sugunan & Meera",
   brideParents: "D/o Jayasheelan & Hareeshma",
   groomAddress: "Kizhakkanakath\n Koyilandy, Kozhikode",
@@ -260,14 +261,14 @@ const D = {
   weddingDateTime: "2026-10-25T10:00:00",         // countdown target (local time)
   mapUrl:   "https://www.google.com/maps/place/Sree+Durga+Auditorium/@11.4268292,75.6955329,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba68baffc4056e5:0xc5cdfa33dd28b505!8m2!3d11.426824!4d75.6981078!16s%2Fg%2F11gmv6jrkr?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
   phone:    "+917034919161",
-  whatsapp: "+919946245758",
+  whatsapp: "919946245758",                       // country code + number, no + sign
 
   musicFile: "song.mpeg"   // your song, in the same folder as this HTML. If missing, the soft built-in melody plays
 };
 /* ============================================================ */
 
 document.querySelectorAll("[data-k]").forEach(e=>e.textContent=D[e.dataset.k]??"");
-seal.textContent=D.bride[0]+"&"+D.groom[0];
+seal.textContent=D.groom[0]+"&"+D.bride[0];
 if(!D.gallery.length)document.getElementById("gal").remove();else galg.innerHTML=D.gallery.map((g,i)=>`<img src="${g}" alt="Glimpse ${i+1}" loading="lazy">`).join("");
 if(!D.families)document.getElementById("fam").remove();
 document.querySelectorAll("[data-photo]").forEach(img=>{const src=D[img.dataset.photo];if(!src)return;img.onload=()=>{img.hidden=false;img.nextElementSibling.hidden=true};img.src=src;});
